@@ -1,0 +1,12 @@
+require 'require_all'
+require 'sugar-high/file'
+require 'sugar-high/alias'
+require 'sugar-high/regexp'
+require 'sugar-high/module'
+
+require 'rails_artifactor/namespaces'
+require 'rails_artifactor/artifact/base'
+require 'rails_artifactor/artifact/markers'
+require 'rails_artifactor/base'
+require 'rails_artifactor/artifact'
+require 'rails_artifactor/macro'

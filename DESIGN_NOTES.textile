@@ -1,0 +1,33 @@
+h1. Version 2
+
+h2. Orm
+
+The macros should allow setting a default :orm, but always allow to specify the orm to use for a particular context.
+
+h2. Template language
+
+The macros should allow setting a default :template language (Tlang), but always allow to specify the Tlang to use for a particular context.
+
+h2. Contexts
+
+<pre>
+with :orm => :mongoid, :template_lang => :erb do |app|
+  app.create_model 'User::Guest' do |model|
+    model.add_field :name, :type => :string, :required => true
+    model.add_method :get_stuff, :params => [:a, :b] do
+      '@a = a'
+    end
+    model.add_code do 
+%q{
+  def hello options = {}
+    puts "hi"
+  end
+}
+    end
+  end
+
+  app.create_model 'User::Guest' do |model|
+    model.add_field :name, :type => :string, :required => true
+  end
+end   
+</pre>
