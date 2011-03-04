@@ -1,6 +1,6 @@
 require 'sugar-high/file'
 
-module Rails3::Assist::Artifact::CRUD
+module RailsAssist::Artifact::CRUD
   module Read
     # TODO: Support :before and :after hash options!
     def read_artifact(name, options = {}, &block)

@@ -1,8 +1,9 @@
 require 'spec_helper'
+require 'migration_assist'
 
 CLASS = RailsAssist::Artifact::Migration
 
-Rails3::Migration::Assist.orm = :active_record
+RailsAssist::Migration.orm = :active_record
 
 class ArtDir
   include CLASS

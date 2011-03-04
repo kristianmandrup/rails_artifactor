@@ -1,16 +1,8 @@
-module RubyMutator
-  def remove_superclass
-    self.gsub! /(class\s+\w+\s*)<\s*(\w|::)+/, '\1'
-  end
-  
-  def inherit_from superclass
-    self.gsub! /(class\s+(\w|::)+)/, '\1' + " < #{superclass.to_s.camelize}\n"
-  end
-end
+require 'rails_artifactor/ruby_mutator'
 
-module Rails3::Assist::Artifact::CRUD
+module RailsAssist::Artifact::CRUD
   module Create             
-    include Rails3::Assist::Artifact::Marker
+    include RailsAssist::Artifact::Marker
     
     def create_artifact name, options={}, &block
       type = get_type(options)
@@ -23,7 +15,7 @@ module Rails3::Assist::Artifact::CRUD
       superclass = options[:superclass] if options[:superclass]
 
       if superclass
-        content.extend(RubyMutator)
+        content.extend(RailsAssist::RubyMutator)
         content.remove_superclass
         content.inherit_from "#{superclass}_permit"
       end
@@ -63,7 +55,8 @@ end}
     def get_content name, type, options = {}, &block
       content = extract_content type, options, &block
       method = content_method(type)
-      send method, name, content, options
+      options[:content] = content
+      send method, name, options, &block 
     end        
   end 
 end

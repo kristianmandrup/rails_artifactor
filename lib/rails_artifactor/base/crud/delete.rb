@@ -1,11 +1,11 @@
 require 'sugar-high/array'
 
-require 'rails3_artifactor/artifact/file_name/view'
+require 'rails_artifactor/artifact/file_name/view'
 
-module Rails3::Assist::Artifact::CRUD
+module RailsAssist::Artifact::CRUD
   module Delete
     class ViewHelper
-      extend Rails3::Assist::Artifact::View::FileName
+      extend RailsAssist::Artifact::View::FileName
     end
     
     def remove_artifact name, *args

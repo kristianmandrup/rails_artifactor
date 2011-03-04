@@ -1,4 +1,4 @@
-require 'rspec/core'
+require 'rspec'
 require 'rails_artifactor'
 require 'rails_artifactor/rspec'
 require 'code-spec'

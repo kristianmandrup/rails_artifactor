@@ -1,6 +1,6 @@
 require 'sugar-high/arguments'
 
-module Rails3::Assist::Artifact::CRUD
+module RailsAssist::Artifact::CRUD
   module Update
     def insert_into_artifact name, options={}, &block
       type = get_type(options)

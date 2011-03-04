@@ -18,16 +18,11 @@ Jeweler::Tasks.new do |gem|
   gem.email = "kmandrup@gmail.com"
   gem.homepage = "http://github.com/kristianmandrup/rails_artifactor"
   gem.authors = ["Kristian Mandrup"]
-  # gem.add_development_dependency "generator-spec",  '>= 0.7.2'
 
-  gem.add_dependency "rspec",             ">= 2.4.1"
-  gem.add_dependency "require_all",       "~> 1.2.0"
-  gem.add_dependency "sugar-high",        "~> 0.3.9"
-  gem.add_dependency 'rails_assist',      "~> 0.4.0"
-  # Include your dependencies below. Runtime dependencies are required when using your gem,
-  # and development dependencies are only needed for development (ie running rake tasks, tests, etc)
-  #  gem.add_runtime_dependency 'jabber4r', '> 0.1'
-  #  gem.add_development_dependency 'rspec', '> 1.2.3'
+  gem.add_development_dependency  "generator-spec",   '>= 0.7.2'
+  
+  gem.add_dependency              'migration_assist', "~> 0.1.7"
+  gem.add_dependency              'rails_assist',     "~> 0.4.0"
 end
 Jeweler::RubygemsDotOrgTasks.new
 

@@ -1,4 +1,4 @@
-require 'rails3_assist/artifact'
+require 'rails_assist/artifact'
 
 module RailsAssist::Artifact
   module FileName         

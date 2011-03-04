@@ -4,7 +4,7 @@ require 'sugar-high/regexp'
 module RailsAssist::Artifact
   module Migration
     module FileName 
-      include ::Rails3::Migration::Assist::ClassMethods      
+      include ::RailsAssist::Migration::ClassMethods
 
       DIR = RailsAssist::Artifact::Directory
 
@@ -19,7 +19,7 @@ module RailsAssist::Artifact
       def migration_file_name name, options={}
         number = options[:number]              
       
-        migration_dir_name = File.expand_path(DIR.migration_dir options)
+        migration_dir_name = File.expand_path(DIR.migration_dir(options))
               
         number = next_migration_number(migration_dir_name) if !number      
         File.join(migration_dir_name, "#{number}_#{name}.rb")      

@@ -1,5 +1,5 @@
 require 'spec_helper'
-require 'generator-spec'
+# require 'generator-spec'
 
 Rails3::Migration::Assist.orm = :active_record
 
