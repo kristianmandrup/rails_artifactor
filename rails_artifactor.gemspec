@@ -61,6 +61,7 @@ Gem::Specification.new do |s|
     "lib/rails_artifactor/template_language/erb.rb",
     "lib/rails_artifactor/template_language/haml.rb",
     "lib/rails_artifactor/template_language/slim.rb",
+    "rails_artifactor.gemspec",
     "spec/fixtures.rb",
     "spec/fixtures/app/views/account/edit.erb.html",
     "spec/fixtures/app/views/account/edit.html.erb",
