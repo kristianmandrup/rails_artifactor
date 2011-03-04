@@ -19,10 +19,11 @@ Jeweler::Tasks.new do |gem|
   gem.homepage = "http://github.com/kristianmandrup/rails_artifactor"
   gem.authors = ["Kristian Mandrup"]
 
-  gem.add_development_dependency  "generator-spec",   '>= 0.7.2'
+  gem.add_development_dependency  "generator-spec",   '>= 0.7.3'
   
-  gem.add_dependency              'migration_assist', "~> 0.1.7"
-  gem.add_dependency              'rails_assist',     "~> 0.4.0"
+  # gem.add_dependency              'migration_assist', "~> 0.1.7"
+  gem.add_dependency              "sugar-high",       "~> 0.4.0"  
+  gem.add_dependency              'rails_assist',     "~> 0.4.1"
 end
 Jeweler::RubygemsDotOrgTasks.new
 
