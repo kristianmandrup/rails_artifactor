@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{rails_artifactor}
-  s.version = "0.3.3"
+  s.version = "0.3.4"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Kristian Mandrup"]
-  s.date = %q{2011-03-04}
+  s.authors = [%q{Kristian Mandrup}]
+  s.date = %q{2011-05-06}
   s.description = %q{Helpers for handling Rails 3 artifacts in general, such as CRUD operations etc.}
   s.email = %q{kmandrup@gmail.com}
   s.extra_rdoc_files = [
@@ -19,6 +19,7 @@ Gem::Specification.new do |s|
   s.files = [
     ".document",
     ".rspec",
+    "Changelog.md",
     "DESIGN_NOTES.textile",
     "Gemfile",
     "LICENSE",
@@ -96,8 +97,8 @@ Gem::Specification.new do |s|
     "spec/spec_helper.rb"
   ]
   s.homepage = %q{http://github.com/kristianmandrup/rails_artifactor}
-  s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.6.1}
+  s.require_paths = [%q{lib}]
+  s.rubygems_version = %q{1.8.0}
   s.summary = %q{Helpers for handling Rails 3 artifacts}
   s.test_files = [
     "spec/fixtures.rb",
