@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{rails_artifactor}
-  s.version = "0.3.5"
+  s.version = "0.3.6"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = [%q{Kristian Mandrup}]
-  s.date = %q{2011-05-08}
+  s.date = %q{2011-05-16}
   s.description = %q{Helpers for handling Rails 3 artifacts in general, such as CRUD operations etc.}
   s.email = %q{kmandrup@gmail.com}
   s.extra_rdoc_files = [
@@ -35,10 +35,8 @@ Gem::Specification.new do |s|
     "lib/rails_artifactor/artifact/crud/read.rb",
     "lib/rails_artifactor/artifact/crud/update.rb",
     "lib/rails_artifactor/artifact/file_name/artifacts.rb",
-    "lib/rails_artifactor/artifact/file_name/migration.rb",
     "lib/rails_artifactor/artifact/file_name/view.rb",
     "lib/rails_artifactor/artifact/markers.rb",
-    "lib/rails_artifactor/artifact/migration.rb",
     "lib/rails_artifactor/artifact/orm.rb",
     "lib/rails_artifactor/artifact/orm/active_record.rb",
     "lib/rails_artifactor/artifact/orm/data_mapper.rb",
@@ -53,7 +51,6 @@ Gem::Specification.new do |s|
     "lib/rails_artifactor/base/crud/read.rb",
     "lib/rails_artifactor/base/crud/update.rb",
     "lib/rails_artifactor/base/file_name.rb",
-    "lib/rails_artifactor/macro.rb",
     "lib/rails_artifactor/namespaces.rb",
     "lib/rails_artifactor/rspec.rb",
     "lib/rails_artifactor/rspec/configure.rb",
@@ -83,7 +80,6 @@ Gem::Specification.new do |s|
     "spec/rails_artifactor/artifact/file_name/migration_spec.rb",
     "spec/rails_artifactor/artifact/file_name/view_spec.rb",
     "spec/rails_artifactor/artifact/markers_spec.rb",
-    "spec/rails_artifactor/artifact/migration_spec.rb",
     "spec/rails_artifactor/artifact/orm/active_record_spec.rb",
     "spec/rails_artifactor/artifact/orm/data_mapper_spec.rb",
     "spec/rails_artifactor/artifact/orm/mongo_mapper_spec.rb",
@@ -117,7 +113,6 @@ Gem::Specification.new do |s|
     "spec/rails_artifactor/artifact/file_name/migration_spec.rb",
     "spec/rails_artifactor/artifact/file_name/view_spec.rb",
     "spec/rails_artifactor/artifact/markers_spec.rb",
-    "spec/rails_artifactor/artifact/migration_spec.rb",
     "spec/rails_artifactor/artifact/orm/active_record_spec.rb",
     "spec/rails_artifactor/artifact/orm/data_mapper_spec.rb",
     "spec/rails_artifactor/artifact/orm/mongo_mapper_spec.rb",
