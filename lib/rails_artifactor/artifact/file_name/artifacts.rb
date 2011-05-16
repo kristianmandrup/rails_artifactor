@@ -1,4 +1,4 @@
-require 'migration_assist'
+# require 'migration_assist'
 require 'rails_artifactor/base/file_name'
 
 module RailsAssist::Artifact
