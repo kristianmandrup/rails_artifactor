@@ -1,7 +1,7 @@
 source :rubygems
 
-gem 'sugar-high',       "~> 0.5.0"
-gem 'rails_assist',     "~> 0.5.0"
+gem 'sugar-high',       ">= 0.4.0"
+gem 'rails_assist',     ">= 0.4.0"
 
 # Add dependencies to develop your gem here.
 # Include everything needed to run rake, tests, features, etc.
