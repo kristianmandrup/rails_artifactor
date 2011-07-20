@@ -18,10 +18,6 @@ Jeweler::Tasks.new do |gem|
   gem.email = "kmandrup@gmail.com"
   gem.homepage = "http://github.com/kristianmandrup/rails_artifactor"
   gem.authors = ["Kristian Mandrup"]
-
-  gem.add_development_dependency  "generator-spec",   '>= 0.7.3'  
-  gem.add_dependency              "sugar-high",       "~> 0.4.0"  
-  gem.add_dependency              'rails_assist',     "~> 0.4.1"
 end
 Jeweler::RubygemsDotOrgTasks.new
 
