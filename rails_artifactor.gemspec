@@ -4,14 +4,14 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{rails_artifactor}
-  s.version = "0.5.0"
+  s.name = "rails_artifactor"
+  s.version = "0.5.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = [%q{Kristian Mandrup}]
-  s.date = %q{2011-08-24}
-  s.description = %q{Helpers for handling Rails 3 artifacts in general, such as CRUD operations etc.}
-  s.email = %q{kmandrup@gmail.com}
+  s.authors = ["Kristian Mandrup"]
+  s.date = "2011-09-21"
+  s.description = "Helpers for handling Rails 3 artifacts in general, such as CRUD operations etc."
+  s.email = "kmandrup@gmail.com"
   s.extra_rdoc_files = [
     "LICENSE",
     "README.markdown"
@@ -28,6 +28,7 @@ Gem::Specification.new do |s|
     "VERSION",
     "lib/rails_artifactor.rb",
     "lib/rails_artifactor/artifact.rb",
+    "lib/rails_artifactor/artifact/asset_artifact.rb",
     "lib/rails_artifactor/artifact/base.rb",
     "lib/rails_artifactor/artifact/crud.rb",
     "lib/rails_artifactor/artifact/crud/create.rb",
@@ -35,6 +36,7 @@ Gem::Specification.new do |s|
     "lib/rails_artifactor/artifact/crud/read.rb",
     "lib/rails_artifactor/artifact/crud/update.rb",
     "lib/rails_artifactor/artifact/file_name/artifacts.rb",
+    "lib/rails_artifactor/artifact/file_name/asset.rb",
     "lib/rails_artifactor/artifact/file_name/view.rb",
     "lib/rails_artifactor/artifact/markers.rb",
     "lib/rails_artifactor/artifact/orm.rb",
@@ -66,6 +68,7 @@ Gem::Specification.new do |s|
     "spec/fixtures/app/views/layouts/application.erb.html",
     "spec/fixtures/app/views/layouts/application.html.erb",
     "spec/rails_artifactor/artifact/base_spec.rb",
+    "spec/rails_artifactor/artifact/crud/asset_spec.rb",
     "spec/rails_artifactor/artifact/crud/controller_spec.rb",
     "spec/rails_artifactor/artifact/crud/helper_spec.rb",
     "spec/rails_artifactor/artifact/crud/mailer_spec.rb",
@@ -92,10 +95,10 @@ Gem::Specification.new do |s|
     "spec/rails_artifactor/base/file_name_spec.rb",
     "spec/spec_helper.rb"
   ]
-  s.homepage = %q{http://github.com/kristianmandrup/rails_artifactor}
-  s.require_paths = [%q{lib}]
-  s.rubygems_version = %q{1.8.8}
-  s.summary = %q{Helpers for handling Rails 3 artifacts}
+  s.homepage = "http://github.com/kristianmandrup/rails_artifactor"
+  s.require_paths = ["lib"]
+  s.rubygems_version = "1.8.10"
+  s.summary = "Helpers for handling Rails 3 artifacts"
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
