@@ -19,25 +19,25 @@ module RailsAssist::Artifact
     def view_file *args
       view_file_name(args)
     end
-    
+
     # CREATE
     def create_view *args, &block
-      file_name = view_file_name(args)      
+      file_name = view_file_name(args)
       dir = File.dirname(file_name)
       FileUtils.mkdir_p dir if !File.directory?(dir)
 
       content = get_view_content(args) || yield if block
-      
+
       # abort if no content given
       debug "Warning: Content must be passed in either as a :content hash or a block" if !content
       return nil if !content
 
       debug "Writing view file: #{file_name}"
       # write file content of view
-      File.open(file_name, 'w') do |f|  
-        f.puts content 
+      File.open(file_name, 'w') do |f|
+        f.puts content
       end
-    end  
+    end
 
     # READ
     def read_view *args, &block
@@ -53,7 +53,7 @@ module RailsAssist::Artifact
         nil
       end
     end
-    
+
     # UPDATE
     def insert_into_view *args, &block
       begin
@@ -78,7 +78,7 @@ module RailsAssist::Artifact
     def remove_views *args
       options = last_option args
       raise ArgumentError, "Missing :folder option in the last argument which must be a Hash" if !options && !options[:folder]
-      args.to_symbols.each{|name| remove_view name, options}      
+      args.to_symbols.each{|name| remove_view name, options}
     end
 
     def get_view_content args
@@ -87,8 +87,8 @@ module RailsAssist::Artifact
       when Hash
         args.first[:content]
       end
-    end    
+    end
 
-    multi_aliases_for :view 
+    multi_aliases_for :view
   end
 end

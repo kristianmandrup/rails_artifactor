@@ -18,15 +18,15 @@ module RailsAssist::Artifact
     class_eval %{
       module #{name.to_s.camelize}
         include RailsAssist::BaseHelper
-        
+
         def self.included base
-          base.class_eval do              
-            include RailsAssist::Artifact::CRUD        
+          base.class_eval do
+            include RailsAssist::Artifact::CRUD
           end
         end
-                
-        multi_aliases_for :#{name}            
+
+        multi_aliases_for :#{name}
       end
     }
-  end    
+  end
 end

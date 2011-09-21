@@ -5,7 +5,7 @@ module RailsAssist::Artifact
       module #{name.to_s.camelize}
         def create_#{name} name, options={}, &block
           create_artifact(name, set(options, :#{name}), &block)
-        end          
+        end
       end
     }
   end

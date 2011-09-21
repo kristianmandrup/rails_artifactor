@@ -13,7 +13,7 @@ module RailsAssist
         multi_alias :_after_ => name, :create => :new, :insert_into => [:inject_into, :update], :read => :X_content, :remove => :delete                    
       end
     end
-                 
+
     protected
 
     def get_type options = {}
@@ -24,13 +24,13 @@ module RailsAssist
       when String, Symbol
         options.to_sym
       else
-        raise ArgumentError, "Bad artifact type specified #{options}"        
+        raise ArgumentError, "Bad artifact type specified #{options}"
       end
     end
-    
-    def debug?      
+
+    def debug?
       RailsAssist.debug_on
-    end    
+    end
 
     def debug msg
       puts msg if debug?
@@ -45,15 +45,15 @@ module RailsAssist
       ''
     end
 
-    def marker_option name, options={}      
+    def marker_option name, options={}
       type = last_option(options)[:type]
       marker_content = if type
         method = :"#{type}_marker"
         orm_marker = send method, name, options if respond_to? method 
       else
         name.to_s.camelize
-      end 
-      options[:before] ? {:before => marker_content} : {:after => marker_content}      
+      end
+      options[:before] ? {:before => marker_content} : {:after => marker_content}
     end
   end
-end   
+end

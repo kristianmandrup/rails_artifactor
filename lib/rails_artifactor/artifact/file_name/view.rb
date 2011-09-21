@@ -1,10 +1,10 @@
 module RailsAssist::Artifact
-  module View    
+  module View
     module FileName
       DIR = RailsAssist::Artifact::Directory
 
       module Helper
-        def default_template_lang 
+        def default_template_lang
           get_type :erb
         end
 
@@ -17,17 +17,17 @@ module RailsAssist::Artifact
           else
             type
           end
-        end 
+        end
 
         def get_view_type type
           get_type(type.empty? ? default_template_lang : type)
-        end          
-        
-        def filename_type str 
+        end
+
+        def filename_type str
           str.split('.')[1..-1].join('.')
         end
-        
-        def filename_name str  
+
+        def filename_name str
           str.gsub /\.(.*)/, ''
         end
       end
@@ -39,19 +39,19 @@ module RailsAssist::Artifact
         views_path = options[:views_path]
         views_path ||= File.join(root_path, 'app/views') if root_path
         File.expand_path File.join(views_path || DIR.view_dirpath, folder.to_s, "#{action}.#{type}")
-      end 
-      
+      end
+
       def get_view_args *args
         args = args.flatten
         raise ArgumentError, "view_file_name must be called with one or more arguments to return a view file" if args.size == 0
         case args.size
-        when 1        
+        when 1
           SingleArg.get_view_args *args
         else
-          TwoArgs.get_view_args *args 
-        end 
+          TwoArgs.get_view_args *args
+        end
       end
-    end 
+    end
 
     module SingleArg
       def self.get_view_args *args
@@ -59,20 +59,20 @@ module RailsAssist::Artifact
         arg = args.first
         case arg
         when Hash
-          # view_file(:person => :show).should == /views\/person\/show\.html\.erb/          
-          return HashArg.get_view_args arg if arg.keys.size == 1 
-          # view_file(:folder => 'person', :type => :show).should == /views\/person\/show\.html\.erb/         
+          # view_file(:person => :show).should == /views\/person\/show\.html\.erb/
+          return HashArg.get_view_args arg if arg.keys.size == 1
+          # view_file(:folder => 'person', :type => :show).should == /views\/person\/show\.html\.erb/
           HashArgs.get_view_args *args
-        when Symbol, String 
+        when Symbol, String
           TwoArgs.get_view_args *args
-        end        
+        end
       end
-      
+
       module HashArg
         extend RailsAssist::Artifact::View::FileName::Helper
-        
-        # view_file(:person => :show).should == /views\/person\/show\.html\.erb/          
-        def self.get_view_args one_hash 
+
+        # view_file(:person => :show).should == /views\/person\/show\.html\.erb/
+        def self.get_view_args one_hash
           folder = one_hash.keys.first.to_s
           filename = one_hash.values.first.to_s
           action = filename_name filename
@@ -85,18 +85,18 @@ module RailsAssist::Artifact
         extend RailsAssist::Artifact::View::FileName::Helper
 
         DIR = RailsAssist::Artifact::Directory
-        
+
         # view_file(:folder => 'person', :action => :show, :type => :erb).should == /views\/person\/show\.html\.erb/         
         def self.get_view_args hash
           try_folder = hash.keys.first
           try_view_folder = File.expand_path(File.join(DIR.view_dir, try_folder.to_s))
           if File.directory? try_view_folder
-            folder = try_folder          
+            folder = try_folder
             action = hash.values.first
           else
-            folder = hash[:folder]          
-            action = hash[:action]
-          end            
+            folder = hash[:folder]
+            action = hash[:action] || hash[:name]
+          end
           type = get_view_type(hash[:type])
           [folder, action, type]
         end
@@ -105,8 +105,8 @@ module RailsAssist::Artifact
       module StringArg
         extend RailsAssist::Artifact::View::FileName::Helper
 
-        # view_file('person/show').should == /views\/person\/show\.html\.erb/                         
-        def self.get_view_args string 
+        # view_file('person/show').should == /views\/person\/show\.html\.erb/
+        def self.get_view_args string
           path_lvs = string.split('/')
           raise ArgumentError, "view must be in a subfolder #{args}" if path_lvs.size < 2
           folder = path_lvs[0..-2].join('/')
@@ -118,7 +118,7 @@ module RailsAssist::Artifact
       end
     end
 
-    module TwoArgs                
+    module TwoArgs
       def self.get_view_args *args
         args = args.flatten
         arg2 = args[1]
@@ -130,27 +130,27 @@ module RailsAssist::Artifact
         when Hash
           # view_file(:show, :folder => 'person', :type => :erb).should == /views\/person\/show\.html\.erb/
           ActionAndHash.get_view_args args
-        end        
+        end
       end
-      
+
       module TwoLabels
         extend RailsAssist::Artifact::View::FileName::Helper
 
         # view_file(:person, :show).should == /views\/person\/show\.html\.erb/
         # view_file('person/admin', :show, :type => :erb).should == /views\/person\/show\.html\.erb/
         def self.get_view_args *args
-          args = args.flatten 
+          args = args.flatten
           folder = args.first.to_s
           action = args[1].to_s
-          hash = args[2] if args.size > 2          
+          hash = args[2] if args.size > 2
           type = get_view_type(hash ? hash[:type] : nil)
           [folder, action, type]
-        end        
+        end
       end
 
       module ActionAndHash
         extend RailsAssist::Artifact::View::FileName::Helper
-        
+
         # view_file(:show, :folder => 'person', :type => :erb).should == /views\/person\/show\.html\.erb/
         def self.get_view_args *args
           args = args.flatten 
@@ -159,12 +159,12 @@ module RailsAssist::Artifact
           hash = args.last
           folder = hash[:folder]
           type = get_view_type(hash[:type])
-          
+
           [folder, action, type]
-        end        
-      end                
+        end
+      end
     end
-    
+
     include FileName
     extend FileName
   end

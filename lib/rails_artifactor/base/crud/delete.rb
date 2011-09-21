@@ -7,20 +7,20 @@ module RailsAssist::Artifact::CRUD
     class ViewHelper
       extend RailsAssist::Artifact::View::FileName
     end
-    
+
     def remove_artifact name, *args
-      file = ViewHelper.view_file_name(name, args)       
-      return FileUtils.rm_f(file) if File.exist?(file) 
-      
-      type = args.first  
+      file = ViewHelper.view_file_name(name, args)
+      return FileUtils.rm_f(file) if File.exist?(file)
+
+      type = args.first
       type = type[:type] if type.kind_of? Hash
       begin
         file = existing_file_name name, type
-        FileUtils.rm_f(file) 
-        debug "removed artifact: #{name}"  
+        FileUtils.rm_f(file)
+        debug "removed artifact: #{name}"
         true
       rescue
-        debug "artifact to remove not found: #{name}"          
+        debug "artifact to remove not found: #{name}"
         nil
       end
     end
@@ -30,6 +30,6 @@ module RailsAssist::Artifact::CRUD
       type = last_option(names)[:type]
       names.flatten.select_labels.each{|name| remove_artifact(name, type) }
     end
-    alias_method :delete_artifacts, :remove_artifacts    
+    alias_method :delete_artifacts, :remove_artifacts
   end
 end

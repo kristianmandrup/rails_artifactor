@@ -4,9 +4,9 @@ module RailsAssist::Orm
 
     def orm_name
       'MongoMapper'
-    end      
-  
-    def new_model_content name, options={}, &block        
+    end
+
+    def new_model_content name, options={}, &block
       content = block ? yield : options[:content]
       file_w_include(name, orm_marker_name(name, options)) { content }
     end

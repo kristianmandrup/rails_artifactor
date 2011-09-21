@@ -5,10 +5,10 @@ module RailsAssist
       end
 
       def insert_ruby_block statement, options = {}, &block
-      end      
+      end
 
       def insert_tag tag, css, options= {}, &block
-      end      
+      end
     end
   end
 end

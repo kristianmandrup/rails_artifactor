@@ -42,14 +42,14 @@ end}
         %Q{#{clazz name} < #{module_name}
   #{yield if block}
 end}
-      end 
-      
+      end
+
       def field name, type = nil
         return "#{field_name} :#{name}, #{type}" if type
         "#{field_name} :#{name}"
-      end      
+      end
     end
   end
 end
-              
+
 require_all File.dirname(__FILE__) + '/orm'
